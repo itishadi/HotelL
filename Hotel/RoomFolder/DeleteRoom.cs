@@ -28,6 +28,15 @@ namespace Hotel.RoomFolder
             dbContext.Rooms.Remove(roomToDelete);
             dbContext.SaveChanges();
 
+            Console.Clear();
+            foreach (var room in dbContext.Rooms)
+            {
+                Console.WriteLine($"Id: {room.RoomId}");
+                Console.WriteLine($"Namn: {room.Description}");
+                Console.WriteLine($"Size: {room.Type}");
+                Console.WriteLine($"Extra bed: {room.ExtraBed}");
+                Console.WriteLine("====================");
+            }
             Console.WriteLine("\n Press any key to continue");
             Console.ReadLine();
         }

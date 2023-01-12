@@ -11,11 +11,9 @@ namespace Hotel.RoomFolder
     {
         public void Run(ApplicationDbContext dbContext)
         {
-            Console.WriteLine("READ alla personer");
-            Console.WriteLine("=====================");
+            Console.WriteLine("READ alla rooms");
+            Console.WriteLine("=====================\n");
 
-            Console.WriteLine("Rooms order by RoomNumber");
-            Console.WriteLine("====================\n");
             foreach (var room in dbContext.Rooms)
             {
                 Console.WriteLine($"Id: {room.RoomId}");

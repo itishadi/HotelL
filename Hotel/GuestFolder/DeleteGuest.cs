@@ -25,10 +25,19 @@ namespace Hotel.GuestFolder
             var guestIdToDelete = Console.ReadLine();
             var guestToDelete = dbContext.Guests.First(g => g.GuestId == guestIdToDelete);
             dbContext.Guests.Remove(guestToDelete);
-            
+            dbContext.SaveChanges();
+
+            Console.Clear();
+            foreach (var g in dbContext.Guests)
+            {
+                Console.WriteLine($"GuestId: {g.GuestId}");
+                Console.WriteLine($"Namn: {g.Name}");
+                Console.WriteLine($"Age: {g.Age}");
+                Console.WriteLine("====================");
+            }
+
             Console.WriteLine("\n Press any key to continue");
             Console.ReadLine();
-            dbContext.SaveChanges();
         }
     }
 }

@@ -12,7 +12,6 @@ namespace Hotel
     {
 
         public DbSet<Guest> Guests { get; set; }
-        public DbSet<Booking> Bookings { get; set; }
         public DbSet<Room> Rooms { get; set; }
 
 
