@@ -40,7 +40,10 @@ namespace Hotel.GuestFolder
             dbContext.SaveChanges();
             foreach (var g in dbContext.Guests)
             {
-                Console.WriteLine($"{g.GuestId} - {g.Name} - {g.Age}");
+                Console.WriteLine($"GuestId: {g.GuestId}");
+                Console.WriteLine($"Namn: {g.Name}");
+                Console.WriteLine($"Age: {g.Age}");
+                Console.WriteLine("====================");
             }
             var guestsUpdate = dbContext.Guests.First(g => g.GuestId == guestIdToUpdate);
         }

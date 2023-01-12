@@ -10,7 +10,7 @@ namespace Hotel.GuestFolder
     {
         public void Run(ApplicationDbContext dbContext)
         {
-            Console.WriteLine("(R)EAD alla personer!");
+            Console.WriteLine(" READ alla personer!");
             Console.WriteLine("=====================");
 
             Console.WriteLine("====================\n");

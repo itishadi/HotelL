@@ -32,7 +32,6 @@ namespace Hotel.GuestFolder
                 Age = age,
             });
             Console.Clear();
-            Console.WriteLine("Enter to see all guestes!");
             dbContext.SaveChanges();
             foreach (var g in dbContext.Guests)
             {

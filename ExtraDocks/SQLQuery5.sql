@@ -1,6 +1,6 @@
 USE [master]
 GO
-/****** Object:  Database [Hotel]    Script Date: 2023-01-04 11:22:40 ******/
+/****** Object:  Database [Hotel]    Script Date: 2023-01-12 20:17:25 ******/
 CREATE DATABASE [Hotel]
  CONTAINMENT = NONE
  ON  PRIMARY 
@@ -82,7 +82,7 @@ ALTER DATABASE [Hotel] SET QUERY_STORE = OFF
 GO
 USE [Hotel]
 GO
-/****** Object:  Table [dbo].[__EFMigrationsHistory]    Script Date: 2023-01-04 11:22:40 ******/
+/****** Object:  Table [dbo].[__EFMigrationsHistory]    Script Date: 2023-01-12 20:17:25 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -96,32 +96,14 @@ CREATE TABLE [dbo].[__EFMigrationsHistory](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Bookings]    Script Date: 2023-01-04 11:22:40 ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-CREATE TABLE [dbo].[Bookings](
-	[BookingId] [int] IDENTITY(1,1) NOT NULL,
-	[RoomsRoomId] [nvarchar](10) NULL,
-	[RoomId] [int] NOT NULL,
-	[GuestID] [int] NOT NULL,
-	[DateStart] [datetime2](7) NOT NULL,
-	[DateEnd] [datetime2](7) NOT NULL,
- CONSTRAINT [PK_Bookings] PRIMARY KEY CLUSTERED 
-(
-	[BookingId] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
-) ON [PRIMARY]
-GO
-/****** Object:  Table [dbo].[Guests]    Script Date: 2023-01-04 11:22:40 ******/
+/****** Object:  Table [dbo].[Guests]    Script Date: 2023-01-12 20:17:25 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
 CREATE TABLE [dbo].[Guests](
-	[GuestId] [int] IDENTITY(1,1) NOT NULL,
-	[Name] [nvarchar](max) NOT NULL,
+	[GuestId] [nvarchar](450) NOT NULL,
+	[Name] [nvarchar](max) NULL,
 	[Age] [int] NOT NULL,
  CONSTRAINT [PK_Guests] PRIMARY KEY CLUSTERED 
 (
@@ -129,46 +111,21 @@ CREATE TABLE [dbo].[Guests](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Rooms]    Script Date: 2023-01-04 11:22:40 ******/
+/****** Object:  Table [dbo].[Rooms]    Script Date: 2023-01-12 20:17:25 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
 CREATE TABLE [dbo].[Rooms](
 	[RoomId] [nvarchar](10) NOT NULL,
-	[Size] [int] NOT NULL,
+	[Type] [nvarchar](max) NOT NULL,
 	[Description] [nvarchar](max) NOT NULL,
-	[ExtraBed] [bit] NOT NULL,
+	[ExtraBed] [nvarchar](max) NOT NULL,
  CONSTRAINT [PK_Rooms] PRIMARY KEY CLUSTERED 
 (
 	[RoomId] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
-GO
-/****** Object:  Index [IX_Bookings_GuestID]    Script Date: 2023-01-04 11:22:40 ******/
-CREATE NONCLUSTERED INDEX [IX_Bookings_GuestID] ON [dbo].[Bookings]
-(
-	[GuestID] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
-GO
-SET ANSI_PADDING ON
-GO
-/****** Object:  Index [IX_Bookings_RoomsRoomId]    Script Date: 2023-01-04 11:22:40 ******/
-CREATE NONCLUSTERED INDEX [IX_Bookings_RoomsRoomId] ON [dbo].[Bookings]
-(
-	[RoomsRoomId] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
-GO
-ALTER TABLE [dbo].[Bookings]  WITH CHECK ADD  CONSTRAINT [FK_Bookings_Guests_GuestID] FOREIGN KEY([GuestID])
-REFERENCES [dbo].[Guests] ([GuestId])
-ON DELETE CASCADE
-GO
-ALTER TABLE [dbo].[Bookings] CHECK CONSTRAINT [FK_Bookings_Guests_GuestID]
-GO
-ALTER TABLE [dbo].[Bookings]  WITH CHECK ADD  CONSTRAINT [FK_Bookings_Rooms_RoomsRoomId] FOREIGN KEY([RoomsRoomId])
-REFERENCES [dbo].[Rooms] ([RoomId])
-GO
-ALTER TABLE [dbo].[Bookings] CHECK CONSTRAINT [FK_Bookings_Rooms_RoomsRoomId]
 GO
 USE [master]
 GO

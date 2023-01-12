@@ -64,22 +64,22 @@ namespace Hotel.Data
 
                 });
             }
-           
+
         }
 
-            private void SeedGuests(ApplicationDbContext dbContext)
+        private void SeedGuests(ApplicationDbContext dbContext)
+        {
+            if (!dbContext.Guests.Any(c => c.GuestId == "Johan"))
             {
-                if (!dbContext.Guests.Any(c => c.Name == "Johan"))
+                dbContext.Guests.Add(new Guest
                 {
-                    dbContext.Guests.Add(new Guest
-                    {
-                       GuestId = "Johan",
-                       Name = "Johan",
-                       Age = 41,
+                    GuestId = "Johan",
+                    Name = "Johan",
+                    Age = 41,
 
-                    });
-                }
-            if (!dbContext.Guests.Any(c => c.Name == "Edward"))
+                });
+            }
+            if (!dbContext.Guests.Any(c => c.GuestId == "Edward"))
             {
                 dbContext.Guests.Add(new Guest
                 {
@@ -89,7 +89,7 @@ namespace Hotel.Data
 
                 });
             }
-            if (!dbContext.Guests.Any(c => c.Name == "Richard"))
+            if (!dbContext.Guests.Any(c => c.GuestId == "Richard"))
             {
                 dbContext.Guests.Add(new Guest
                 {
@@ -99,7 +99,7 @@ namespace Hotel.Data
 
                 });
             }
-            if (!dbContext.Guests.Any(c => c.Name == "Stefan"))
+            if (!dbContext.Guests.Any(c => c.GuestId == "Stefan"))
             {
                 dbContext.Guests.Add(new Guest
                 {
@@ -110,6 +110,6 @@ namespace Hotel.Data
                 });
             }
         }
-            
+
     }
 }
