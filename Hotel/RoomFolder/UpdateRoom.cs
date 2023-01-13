@@ -11,6 +11,7 @@ namespace Hotel.RoomFolder
         
         public void Run(ApplicationDbContext dbContext)
         {
+            Console.Clear();
             Console.WriteLine("Update a room");
             Console.WriteLine("=====================");
 

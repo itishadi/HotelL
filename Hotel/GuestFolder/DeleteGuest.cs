@@ -11,6 +11,7 @@ namespace Hotel.GuestFolder
     {
         public void Run(ApplicationDbContext dbContext)
         {
+            Console.Clear();
             Console.WriteLine("Delete a guest");
             Console.WriteLine("=====================");
             foreach (var g in dbContext.Guests)

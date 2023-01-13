@@ -10,6 +10,7 @@ namespace Hotel.RoomFolder
     {
         public void Run(ApplicationDbContext dbContext)
         {
+            Console.Clear();
             Console.WriteLine("Delete a room!");
             Console.WriteLine("=====================");
 

@@ -11,6 +11,7 @@ namespace Hotel.RoomFolder
     {
         public void Run(ApplicationDbContext dbContext)
         {
+            Console.Clear();
             Console.WriteLine("Read all rooms");
             Console.WriteLine("=====================\n");
 

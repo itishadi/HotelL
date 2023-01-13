@@ -14,7 +14,6 @@ public class MainMenu
 {
     public void Run()
     {
-
         Console.WriteLine("1: Rooms");
         Console.WriteLine("2: Guests");
         Console.WriteLine("0: Exit");
@@ -23,6 +22,7 @@ public class MainMenu
          var answer = Console.ReadLine();
             if (answer == "1")
             {
+                Console.Clear();
                 Console.WriteLine("Please wait...");
                 var app = new ApplicationRooms();
                 app.Run();
@@ -30,6 +30,7 @@ public class MainMenu
             }
             else if (answer == "2")
             {
+                Console.Clear();
                 Console.WriteLine("Please wait...");
                 var app = new ApplicationGuests();
                 app.Run();

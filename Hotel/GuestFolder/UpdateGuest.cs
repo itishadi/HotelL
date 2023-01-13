@@ -10,6 +10,7 @@ namespace Hotel.GuestFolder
     {
         public void Run(ApplicationDbContext dbContext)
         {
+            Console.Clear();
             Console.WriteLine("Update a guest");
             Console.WriteLine("=====================");
 
