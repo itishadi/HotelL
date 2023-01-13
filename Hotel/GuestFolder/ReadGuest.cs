@@ -10,13 +10,13 @@ namespace Hotel.GuestFolder
     {
         public void Run(ApplicationDbContext dbContext)
         {
-            Console.WriteLine(" READ alla personer!");
+            Console.WriteLine(" Read all guests!");
             Console.WriteLine("=====================");
 
             Console.WriteLine("====================\n");
             foreach (var g in dbContext.Guests)
             {
-                Console.WriteLine($"GuestId: {g.GuestId}");
+                Console.WriteLine($"ID: {g.GuestId}");
                 Console.WriteLine($"Namn: {g.Name}");
                 Console.WriteLine($"Age: {g.Age}");
                 Console.WriteLine("====================");

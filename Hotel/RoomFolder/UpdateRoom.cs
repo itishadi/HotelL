@@ -11,25 +11,25 @@ namespace Hotel.RoomFolder
         
         public void Run(ApplicationDbContext dbContext)
         {
-            Console.WriteLine("UPDATE en befintlig room");
+            Console.WriteLine("Update a room");
             Console.WriteLine("=====================");
 
             foreach (var room in dbContext.Rooms)
             {
                 Console.WriteLine($"Id: {room.RoomId}");
-                Console.WriteLine($"Namn: {room.Description}");
-                Console.WriteLine($"Size: {room.Type}");
+                Console.WriteLine($"Description: {room.Description}");
+                Console.WriteLine($"Type: {room.Type}");
                 Console.WriteLine($"Extra bed: {room.ExtraBed}");
                 Console.WriteLine("====================");
             }
 
-            Console.WriteLine("Välj Id/RoomNumber på det room som du vill uppdatera");
+            Console.WriteLine("Choose the ID room you want to uppdate: ");
             var roomIdToUpdate = Console.ReadLine();
             var roomToUpdate = dbContext.Rooms.First(p => p.RoomId == roomIdToUpdate);
             Console.Clear();
 
             Console.Clear();
-            Console.WriteLine("Wish room Typ!");
+            Console.WriteLine("Wish room Type!");
             Console.WriteLine("1: Twin 24 square meter");
             Console.WriteLine("2: Triple 32 square meter");
 
@@ -88,8 +88,8 @@ namespace Hotel.RoomFolder
             foreach (var room in dbContext.Rooms)
             {
                 Console.WriteLine($"Id: {room.RoomId}");
-                Console.WriteLine($"Namn: {room.Description}");
-                Console.WriteLine($"Size: {room.Type}");
+                Console.WriteLine($"Description: {room.Description}");
+                Console.WriteLine($"Type: {room.Type}");
                 Console.WriteLine($"Extra bed: {room.ExtraBed}");
                 Console.WriteLine("====================");
             }

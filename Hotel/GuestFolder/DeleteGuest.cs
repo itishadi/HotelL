@@ -11,17 +11,17 @@ namespace Hotel.GuestFolder
     {
         public void Run(ApplicationDbContext dbContext)
         {
-            Console.WriteLine("DELETE en befintlig guest");
+            Console.WriteLine("Delete a guest");
             Console.WriteLine("=====================");
             foreach (var g in dbContext.Guests)
             {
-                Console.WriteLine($"GuestId: {g.GuestId}");
+                Console.WriteLine($"ID: {g.GuestId}");
                 Console.WriteLine($"Namn: {g.Name}");
                 Console.WriteLine($"Age: {g.Age}");
                 Console.WriteLine("====================");
             }
 
-            Console.WriteLine("Välj Id på den guest som du vill radera");
+            Console.WriteLine("Choose a ID you want to delete: ");
             var guestIdToDelete = Console.ReadLine();
             var guestToDelete = dbContext.Guests.First(g => g.GuestId == guestIdToDelete);
             dbContext.Guests.Remove(guestToDelete);
@@ -30,7 +30,7 @@ namespace Hotel.GuestFolder
             Console.Clear();
             foreach (var g in dbContext.Guests)
             {
-                Console.WriteLine($"GuestId: {g.GuestId}");
+                Console.WriteLine($"ID: {g.GuestId}");
                 Console.WriteLine($"Namn: {g.Name}");
                 Console.WriteLine($"Age: {g.Age}");
                 Console.WriteLine("====================");

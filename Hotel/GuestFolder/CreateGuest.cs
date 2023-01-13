@@ -22,7 +22,7 @@ namespace Hotel.GuestFolder
 
 
             Console.Clear();
-            Console.WriteLine("What is your IDNumber/Personnummer?");
+            Console.WriteLine("What is your ID/Personnummer?");
             var guestIdInput = Console.ReadLine();
         
             dbContext.Guests.Add(new Guest
@@ -35,7 +35,7 @@ namespace Hotel.GuestFolder
             dbContext.SaveChanges();
             foreach (var g in dbContext.Guests)
             {
-                Console.WriteLine($"GuestId: {g.GuestId}");
+                Console.WriteLine($"ID: {g.GuestId}");
                 Console.WriteLine($"Namn: {g.Name}");
                 Console.WriteLine($"Age: {g.Age}");
                 Console.WriteLine("====================");

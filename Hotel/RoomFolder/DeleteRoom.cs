@@ -10,18 +10,18 @@ namespace Hotel.RoomFolder
     {
         public void Run(ApplicationDbContext dbContext)
         {
-            Console.WriteLine("DELETE en befintlig room");
+            Console.WriteLine("Delete a room!");
             Console.WriteLine("=====================");
 
             foreach (var room in dbContext.Rooms)
             {
                 Console.WriteLine($"Id: {room.RoomId}");
-                Console.WriteLine($"Namn: {room.Description}");
-                Console.WriteLine($"Size: {room.Type}");
+                Console.WriteLine($"Description: {room.Description}");
+                Console.WriteLine($"Type: {room.Type}");
                 Console.WriteLine($"Extra bed: {room.ExtraBed}");
                 Console.WriteLine("====================");
             }
-            Console.WriteLine("Välj Id på den room som du vill radera");
+            Console.WriteLine("Choose the ID you want to delete: ");
             var roomIdToDelete = Console.ReadLine();
 
             var roomToDelete = dbContext.Rooms.First(p => p.RoomId == roomIdToDelete);
@@ -32,8 +32,8 @@ namespace Hotel.RoomFolder
             foreach (var room in dbContext.Rooms)
             {
                 Console.WriteLine($"Id: {room.RoomId}");
-                Console.WriteLine($"Namn: {room.Description}");
-                Console.WriteLine($"Size: {room.Type}");
+                Console.WriteLine($"Description: {room.Description}");
+                Console.WriteLine($"Type: {room.Type}");
                 Console.WriteLine($"Extra bed: {room.ExtraBed}");
                 Console.WriteLine("====================");
             }

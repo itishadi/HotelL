@@ -15,11 +15,11 @@ namespace Hotel.RoomFolder
         public void Run(ApplicationDbContext dbContext)
         {
             Console.Clear();    
-            Console.WriteLine("Create a RoomID!");
+            Console.WriteLine("Create a Room ID!");
             var roomNumber = Console.ReadLine();
 
             Console.Clear();
-            Console.WriteLine("Wish room size!");
+            Console.WriteLine("Wish room type: ");
             Console.WriteLine("1: Twin 24 square meter");
             Console.WriteLine("2: Triple 32 square meter");
 
@@ -82,8 +82,8 @@ namespace Hotel.RoomFolder
             foreach (var room in dbContext.Rooms)
             {
                 Console.WriteLine($"Id: {room.RoomId}");
-                Console.WriteLine($"Namn: {room.Description}");
-                Console.WriteLine($"Size: {room.Type}");
+                Console.WriteLine($"Description: {room.Description}");
+                Console.WriteLine($"Type: {room.Type}");
                 Console.WriteLine($"Extra bed: {room.ExtraBed}");
                 Console.WriteLine("====================");
             }

@@ -11,14 +11,14 @@ namespace Hotel.RoomFolder
     {
         public void Run(ApplicationDbContext dbContext)
         {
-            Console.WriteLine("READ alla rooms");
+            Console.WriteLine("Read all rooms");
             Console.WriteLine("=====================\n");
 
             foreach (var room in dbContext.Rooms)
             {
                 Console.WriteLine($"Id: {room.RoomId}");
-                Console.WriteLine($"Namn: {room.Description}");
-                Console.WriteLine($"Size: {room.Type}");
+                Console.WriteLine($"Description: {room.Description}");
+                Console.WriteLine($"Type: {room.Type}");
                 Console.WriteLine($"Extra bed: {room.ExtraBed}");
                 Console.WriteLine("====================");
             }
